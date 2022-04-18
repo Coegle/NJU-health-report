@@ -16,9 +16,9 @@ auth = NjuUiaAuth()
 def get_zjhs_time(method='FIVE_DAYS_AGO'):
     today = datetime.datetime.now(timezone('Asia/Shanghai'))
     yesterday = today + datetime.timedelta(-1)
-    last_day = datetime.datetime.strptime("2022-04-09","%Y-%m-%d")
+    last_day = datetime.datetime(2022, 4, 9, tzinfo=timezone('Asia/Shanghai'))
     if method == 'FIVE_DAYS_AGO':
-        return today + datetime.timedelta(days=-((today-last_day) % 5))
+        return today + datetime.timedelta(days=-((today-last_day).days % 5))
 
 
 if __name__ == "__main__":
